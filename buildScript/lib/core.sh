@@ -6,7 +6,7 @@ cd dun
 rm -rf sing-box
 #git clone -b building https://github.com/PuerNya/sing-box.git sing-box
 #git clone -b dev-next-yaott https://github.com/CHIZI-0618/sing-box.git sing-box
-git clone -b def https://github.com/xchacha20-poly1305/sing-box.git sing-box
+git clone -b dev-next https://github.com/SagerNet/sing-box.git sing-box
 cd ../..
 git clone -b dev https://github.com/SagerNet/sing sing
 rm -f sing/protocol/http/client.go
@@ -16,8 +16,8 @@ rm -rf s
 cd sing
 rm -f common/bufio/addr_conn.go
 cd ..
-cp -rf sing nach/dun
-cd nach/dun
+cp -rf sing swit/dun
+cd swit/dun
 #svn co https://github.com/MatsuriDayo/sing-box/branches/1.6.a2/nekoutils sing-box/nekoutils
 #awk '/^replace/ && !found {print "replace github.com/sagernet/sing => ../sing"; found=1} 1' sing-box-extra/go.mod > go.mod.tmp && mv -f go.mod.tmp sing-box-extra/go.mod
 ls -la
@@ -62,14 +62,14 @@ sed -i '/berty\.tech\/go-libtor v[0-999]\+\.[0-999]\+\.[0-999]\+ \/\//a \\tgithu
 #sed -i 's/sniffMetadata, _ := sniff.PeekPacket(ctx, buffer.Bytes(), sniff.DomainNameQuery, sniff.QUICClientHello, sniff.STUNMessage)/sniffMetadata, _ := sniff.PeekPacket(ctx, buffer.Bytes(), sniff.DomainNameQuery, sniff.QUICClientHello, sniff.STUNMessage, sniff.BittorrentUDPMessage)/' sing-box/route/router.go
 awk '{if(index($0, "//replace github.com/sagernet/sing") > 0) $0 = "replace github.com/sagernet/sing => ../sing"}1' sing-box/go.mod > temp_file && mv -f temp_file sing-box/go.mod
 awk '/^replace/ && !found {print "replace github.com/sagernet/sing => ../../sing"; found=1} 1' sing-box/test/go.mod > go.mod.tmp && mv -f go.mod.tmp sing-box/test/go.mod
-#awk '/^replace/ && !found {print "replace github.com/sagernet/sing => ../../../../sing"; found=1} 1' nach/libcore/.build/src/go.mod > go.mod.tmp && mv -f go.mod.tmp nach/libcore/.build/src/go.mod
-#awk '/^replace/ && !found {print "replace github.com/sagernet/sing => ../../sing"; found=1} 1' nach/libcore/go.mod > go.mod.tmp && mv -f go.mod.tmp nach/libcore/go.mod
+#awk '/^replace/ && !found {print "replace github.com/sagernet/sing => ../../../../sing"; found=1} 1' swit/libcore/.build/src/go.mod > go.mod.tmp && mv -f go.mod.tmp swit/libcore/.build/src/go.mod
+#awk '/^replace/ && !found {print "replace github.com/sagernet/sing => ../../sing"; found=1} 1' swit/libcore/go.mod > go.mod.tmp && mv -f go.mod.tmp swit/libcore/go.mod
 #git clone -b dev https://github.com/xchacha20-poly1305/sing-quic sing-quic
 cd sing-box/test
 go mod tidy
 cd ..
 go mod tidy
-#cd ../nach/libcore/.build/src
+#cd ../swit/libcore/.build/src
 #go mod tidy
 cd ../../libcore
 awk '{if(index($0, "// replace github.com/sagernet/sing =>") > 0) $0 = "replace github.com/sagernet/sing => ../../sing"}1' go.mod > temp_file && mv -f temp_file go.mod
