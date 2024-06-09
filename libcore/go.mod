@@ -98,3 +98,5 @@ require (
 	google.golang.org/grpc v1.63.2 // indirect
 	lukechampine.com/blake3 v1.2.1 // indirect
 )
+
+// replace github.com/sagernet/sing => ../../sing
