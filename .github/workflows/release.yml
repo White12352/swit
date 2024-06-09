@@ -21,13 +21,13 @@ jobs:
         run: find buildScript libcore/*.sh | xargs cat | sha1sum > golang_status
       - name: Libcore Status
         run: git ls-files libcore | xargs cat | sha1sum > libcore_status
-      - name: LibCore Cache
-        id: cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            app/libs/libcore.aar
-          key: ${{ hashFiles('.github/workflows/*', 'golang_status', 'libcore_status') }}
+      #- name: LibCore Cache
+        #id: cache
+        #uses: actions/cache@v4
+        #with:
+          #path: |
+            #app/libs/libcore.aar
+          #key: ${{ hashFiles('.github/workflows/*', 'golang_status', 'libcore_status') }}
       - name: Golang Version
         if: steps.cache.outputs.cache-hit != 'true'
         id: version
@@ -35,7 +35,7 @@ jobs:
           source buildScript/init/version.sh
           echo go_version=$GO_VERSION >> $GITHUB_OUTPUT
       - name: Install Golang
-        if: steps.cache.outputs.cache-hit != 'true'
+        #if: steps.cache.outputs.cache-hit != 'true'
         uses: actions/setup-go@v5
         with:
           go-version: ${{ steps.version.outputs.go_version }}
@@ -45,7 +45,7 @@ jobs:
           java-version: "17"
           distribution: "temurin"
       - name: Native Build
-        if: steps.cache.outputs.cache-hit != 'true'
+        #if: steps.cache.outputs.cache-hit != 'true'
         run: |
           ./run lib core
       - name: Upload libcore
