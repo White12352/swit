@@ -2,7 +2,6 @@
 
 buildScript/lib/core/init.sh
 cd libcore
-go mod tidy
-go get libcore/cmd/ruleset_generate
+go get -t
 cd ..
 buildScript/lib/core/build.sh
