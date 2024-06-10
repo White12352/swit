@@ -72,13 +72,13 @@ jobs:
         with:
           java-version: "17"
           distribution: "temurin"
-      - name: Gradle cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.gradle
-          key: gradle-foss-${{ hashFiles('**/*.gradle.kts') }}
+      #- name: Gradle cache
+        #uses: actions/cache@v4
+        #with:
+          #path: ~/.gradle
+          #key: gradle-foss-${{ hashFiles('**/*.gradle.kts') }}
       - name: Golang Version
-        if: steps.cache.outputs.cache-hit != 'true'
+        #if: steps.cache.outputs.cache-hit != 'true'
         id: version
         run: |
           source buildScript/init/version.sh
