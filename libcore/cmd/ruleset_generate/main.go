@@ -9,9 +9,9 @@ import (
 	"path/filepath"
 
 	"github.com/sagernet/sing-box/common/geosite"
-	"github.com/sagernet/sing-box/common/srs"
-	C "github.com/sagernet/sing-box/constant"
-	"github.com/sagernet/sing-box/option"
+	"github.com/White12352/sing-box/common/srs"
+	C "github.com/White12352/sing-box/constant"
+	"github.com/White12352/sing-box/option"
 )
 
 var (
