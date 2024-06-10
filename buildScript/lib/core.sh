@@ -3,6 +3,6 @@
 buildScript/lib/core/init.sh
 cd libcore
 go mod tidy
-cd ..
 go get libcore/cmd/ruleset_generate
+cd ..
 buildScript/lib/core/build.sh
